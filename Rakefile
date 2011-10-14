@@ -25,6 +25,9 @@ desc "Create the database"
 task :db do
   require "init"
   DataMapper.auto_upgrade!
+  
+  require 'integrity/migrations'
+  DataMapper.migrate_up!
 end
 
 desc "Clean-up build directory"
